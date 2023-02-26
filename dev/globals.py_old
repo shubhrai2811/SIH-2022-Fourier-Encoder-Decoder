@@ -1,0 +1,12 @@
+#encoder data
+
+base_f = 50
+reso = 5
+def ifreq(i):#gives ith frequence
+    return base_f + reso * i
+
+T=1/48000
+nc = int(((1/T)/2 - base_f)//reso)#number of coefficients to be encoded in one unit of sound
+n=2*ifreq(nc) + 100#number of data points in one unit of sound [2 * maximum frequency]
+
+LCHUNKS = 4800
